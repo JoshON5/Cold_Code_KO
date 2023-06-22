@@ -1,21 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="develop/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="develop/style.css" />
     <title>Cold Code KO!</title>
-</head>
-<body>
-    
-
-
-
-
-
-
-
-
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-display">
+        <button>View Leaderboard</button>
+        <p>Timer: 00:00</p>
+      </div>
+      <div class="card">
+        <header class="intro">
+          <h1>Welcome to Cold Code KO!</h1>
+          <p>If you think your brain won't freeze up, then start the quiz!</p>
+          <button>Start Quiz</button>
+        </header>
+        <main>
+            <section class="quiz">
+                <h2></h2>
+                <ol>
+                    <li><button>Answer 0</button></li>
+                    <li><button>Answer 1</button></li>
+                    <li><button>Answer 2</button></li>
+                    <li><button>Answer 3</button></li>
+                </ol>
+            </section>
+            <section class="quiz-final-screen">
+                <h2>Quiz KO'd!!!!</h2>
+                <p>Your Score: 00</p>
+                <div>
+                    <label for="">Enter initials</label>
+                    <input type="text">
+                    <button>Submit</button>
+                </div>
+            </section>
+            <section class="highscores">
+                <h2>Leaderboard</h2>
+                <ol>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <li id="score"></li>
+                    <button>Go Back</button>
+                    <button>Clear Leaderboard</button>
+            </section>
+            
+        </main>
+      </div>
+    </div>
     <script src="develop/script.js"></script>
-</body>
+  </body>
 </html>
