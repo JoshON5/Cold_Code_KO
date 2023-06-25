@@ -9,32 +9,32 @@
   <body>
     <div class="container">
       <div class="top-display">
-        <button>View Leaderboard</button>
-        <p>Timer: 00:00</p>
+        <button id="view-board">View Leaderboard</button>
+        <p id="timer">Timer: 00:00</p>
       </div>
       <div class="card">
         <header class="intro">
           <h1>Welcome to Cold Code KO!</h1>
           <p>If you think your brain won't freeze up, then start the quiz!</p>
-          <button>Start Quiz</button>
+          <button id="start">Start Quiz</button>
         </header>
         <main>
             <section class="quiz">
-                <h2></h2>
-                <ol>
-                    <li><button>Answer 0</button></li>
-                    <li><button>Answer 1</button></li>
-                    <li><button>Answer 2</button></li>
-                    <li><button>Answer 3</button></li>
+                <h2 class="questions"></h2>
+                <ol class="choices">
+                    <li id="answer-0"><button>Answer 0</button></li>
+                    <li id="answer-1"><button>Answer 1</button></li>
+                    <li id="answer-2"><button>Answer 2</button></li>
+                    <li id="answer-3"><button>Answer 3</button></li>
                 </ol>
             </section>
             <section class="quiz-final-screen">
                 <h2>Quiz KO'd!!!!</h2>
                 <p>Your Score: 00</p>
                 <div>
-                    <label for="">Enter initials</label>
+                    <label class="initials" for="">Enter initials</label>
                     <input type="text">
-                    <button>Submit</button>
+                    <button id="submit">Submit</button>
                 </div>
             </section>
             <section class="highscores">
@@ -57,8 +57,8 @@
                     <li id="score"></li>
                     <li id="score"></li>
                     <li id="score"></li>
-                    <button>Go Back</button>
-                    <button>Clear Leaderboard</button>
+                    <button id="play-again">Go Back</button>
+                    <button id="erase-leaders">Clear Leaderboard</button>
             </section>
             
         </main>
