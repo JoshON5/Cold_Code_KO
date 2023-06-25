@@ -64,7 +64,7 @@ function countdown() {
 
     if (seconds === 0 || questionCount === codeQuest.length) {
       clearInterval(timeInterval);
-      questions.style.display = "none";
+      quiz.style.display = "none";
       finalScreen.style.display = "block";
       score.style.display = seconds;
     }
@@ -73,7 +73,7 @@ function countdown() {
 
 function playQuiz() {
     intro.style.display = "none";
-    questions.style.display = "inline";
+    quiz.style.display = "inline";
     questionCount = 0;
 
     countdown();
@@ -91,9 +91,14 @@ function setQuestion(id) {
 }
 
 function displayMessage(m) {
-  answerCheck.textContent = m;
+  let checkMsg = document.createElement("hr");
+  let checkEl = document.createElement("div");
+   checkEl.textContent = m;
+   document.querySelector(".card").appendChild(checkMsg);
+   document.querySelector(".card").appendChild(checkEl);
   setTimeout(function() {
-    answerCheck.textContent.remove();
+    checkMsg.remove();
+    checkEl.remove();
   }, 1000);
 }
 

@@ -2,3 +2,16 @@
     margin: 0;
     padding: 0;
 }
+
+.highscores {
+    display: none;
+}
+
+.quiz {
+    display: none;
+}
+
+.quiz-final-screen {
+    display: none;
+
+}
