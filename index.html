@@ -10,7 +10,7 @@
     <div class="container">
       <div class="top-display">
         <button id="view-board">View Leaderboard</button>
-        <p id="timer">Timer: 00:00</p>
+        <p id="timer"></p>
       </div>
       <div class="card">
         <header class="intro">
@@ -22,41 +22,36 @@
             <section class="quiz">
                 <h2 class="questions"></h2>
                 <ol class="choices">
-                    <li id="answer-0"><button>Answer 0</button></li>
-                    <li id="answer-1"><button>Answer 1</button></li>
-                    <li id="answer-2"><button>Answer 2</button></li>
-                    <li id="answer-3"><button>Answer 3</button></li>
+                    <li><button id="answer-0" value="0" type="button">Answer 0</button></li>
+                    <li><button id="answer-1" value="1" type="button">Answer 1</button></li>
+                    <li><button id="answer-2" value="2" type="button">Answer 2</button></li>
+                    <li><button id="answer-3" value="3" type="button">Answer 3</button></li>
                 </ol>
+                <div id="validation"></div>
             </section>
             <section class="quiz-final-screen">
                 <h2>Quiz KO'd!!!!</h2>
-                <p>Your Score: 00</p>
+                <p>Your Score: <span id="score">0</span></p>
                 <div>
                     <label class="initials" for="">Enter initials</label>
-                    <input type="text">
+                    <input placeholder="JC" type="text">
                     <button id="submit">Submit</button>
                 </div>
             </section>
             <section class="highscores">
                 <h2>Leaderboard</h2>
                 <ol>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
-                    <li id="score"></li>
+                  <li id="scoreStore"></li>
+                  <li id="scoreStore"></li>
+                  <li id="scoreStore"></li>
+                  <li id="scoreStore"></li>
+                  <li id="scoreStore"></li>
+                  <li id="scoreStore"></li>
+                  <li id="scoreStore"></li>
+                  <li id="scoreStore"></li>                    
+                  <li id="scoreStore"></li>
+                  <li id="scoreStore"></li>
+                  <li id="scoreStore"></li>
                     <button id="play-again">Go Back</button>
                     <button id="erase-leaders">Clear Leaderboard</button>
             </section>
