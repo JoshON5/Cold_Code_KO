@@ -66,7 +66,7 @@ function countdown() {
       clearInterval(timeInterval);
       quiz.style.display = "none";
       finalScreen.style.display = "block";
-      score.style.display = seconds;
+      score.textContent = seconds;
     }
   }, 1000);
 }
