@@ -90,6 +90,13 @@ function setQuestion(id) {
     }
 }
 
+function displayMessage(m) {
+  answerCheck.textContent = m;
+  setTimeout(function() {
+    answerCheck.textContent.remove();
+  }, 1000);
+}
+
 function checkAnswer(event) {
     event.preventDefault();
 
@@ -98,10 +105,10 @@ function checkAnswer(event) {
         
     }, 1000);
     if (codeQuest[questionCount].correctAnswer === event.target.value) {
-        //.textContent = "Right Jab!";
+        displayMessage("Right Jab!");
     } else if (codeQuest[questionCount].correctAnswer !== event.target.value) {
         seconds = seconds - 10;
-        //.textContent = "BOO! Get back up . . ."
+        displayMessage("BOO! Get back up . . .");
     }
     if (questionCount < codeQuest.length) {
         questionCount++;
