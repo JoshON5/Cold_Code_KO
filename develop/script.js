@@ -12,7 +12,6 @@ let answerCheck = document.querySelector("#validation");
 let score = document.querySelector("#score");
 let leaderBoard = document.querySelector(".board");
 
-
 const leaders = document.querySelector("#view-board");
 const quizBtn = document.querySelector("#start");
 const choices = document.querySelectorAll(".choices");
@@ -66,6 +65,7 @@ function countdown() {
 
     if (seconds === 0 || questionCount === codeQuest.length) {
       clearInterval(timeInterval);
+      timeEl.textContent = "";
       quiz.style.display = "none";
       finalScreen.style.display = "block";
       score.textContent = seconds;
@@ -77,6 +77,8 @@ function countdown() {
 function playQuiz() {
   intro.style.display = "none";
   quiz.style.display = "inline";
+  finalScreen.style.display = "none";
+  rankScreen.style.display = "none";
   questionCount = 0;
 
   countdown();
@@ -120,13 +122,14 @@ function checkAnswer(event) {
   }
   setQuestion(questionCount);
 }
-console.log(leaderBoard);
+
 function renderLeaderboard() {
   var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
 
-  for (var i = 0;i < highscores.length; i++) {
+  for (var i = 0; i < highscores.length; i++) {
     var leaderList = document.createElement("li");
-    leaderList.textContent = highscores[i].userInitials + " - " + highscores[i].userScore;
+    leaderList.textContent =
+      highscores[i].userInitials + " - " + highscores[i].userScore;
 
     leaderBoard.appendChild(leaderList);
   }
@@ -134,28 +137,39 @@ function renderLeaderboard() {
   rankScreen.style.display = "block";
   finalScreen.style.display = "none";
 }
+function quizAgain() {
+  seconds = 75;
+  questionCount = 0;
+  playQuiz();
+}
 
 subBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
   let initials = userInitialsEl.value.trim();
-    if (initials !== "") {
-      var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+  if (initials !== "") {
+    var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
 
-      var newScore = {
-        userScore: seconds,
-        userInitials: initials,
-      }; 
-      highscores.push(newScore)
-      localStorage.setItem("highscores", JSON.stringify(highscores))
-
-      renderLeaderboard()
+    var newScore = {
+      userScore: seconds,
+      userInitials: initials,
     };
-    //userInitials.value = "";
+    highscores.push(newScore);
+    localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    renderLeaderboard();
+  }
 });
 
 quizBtn.addEventListener("click", playQuiz);
 
 choices.forEach((item) => {
   item.addEventListener("click", checkAnswer);
+});
+
+playAgain.addEventListener("click", quizAgain);
+
+clearScores.addEventListener("click", function () {
+  localStorage.clear("highscores", JSON.stringify(highscores));
+  renderLeaderboard();
 });
