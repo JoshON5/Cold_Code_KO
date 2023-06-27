@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-.highscores {
+.final-rank {
     display: none;
 }
 
@@ -19,4 +19,8 @@
 #score {
     display: inline;
     
+}
+
+.board {
+    list-style: lower-roman;
 }

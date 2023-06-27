@@ -6,10 +6,14 @@ let questions = document.querySelector(".questions");
 let questionCount = 0;
 let finalScreen = document.querySelector(".quiz-final-screen");
 let userInitials = document.querySelector(".initials");
+let rankScreen = document.querySelector(".final-rank");
 let rank = document.querySelector(".highscores");
 let scoreRanks = [];
 let answerCheck = document.querySelector("#validation");
 let score = document.querySelector("#score");
+let leaderBoard = document.querySelector(".board");
+var leader = [];
+
 
 const leaders = document.querySelector("#view-board");
 const quizBtn = document.querySelector("#start");
@@ -67,6 +71,7 @@ function countdown() {
       quiz.style.display = "none";
       finalScreen.style.display = "block";
       score.textContent = seconds;
+      localStorage.setItem("score", score);
     }
   }, 1000);
 }
@@ -120,6 +125,35 @@ function checkAnswer(event) {
     }
     setQuestion(questionCount);
 }
+console.log(leaderBoard)
+function renderLeaderboard() {
+  userInitials.innerHTML = "";
+  rankScreen.style.display = "block";
+  finalScreen.style.display = "none";
+  leader = JSON.parse(localStorage.getItem("scoreVal"));
+  for (let i= 0; i < leaderBoard.length; i++) {
+    let leaderList = document.createElement("li")
+    leaderList.textContent = leaderBoard[i].userInitials + leaderBoard[i].score;
+    leaderBoard.appendChild(leaderList);
+  }
+};
+
+subBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+
+  let initVal = userInitials.value.trim();
+  if (initVal) {
+    let userScore = {
+      username: initVal,
+      userScore: score
+    }
+    userInitials.value = "";
+    rank = JSON.stringify(localStorage.getItem("score")) || [];
+    rank.push(userScore)
+    localStorage.setItem("scoreVal", JSON.stringify(userScore));
+  }
+    renderLeaderboard();
+})
 
 quizBtn.addEventListener("click", playQuiz);
 
