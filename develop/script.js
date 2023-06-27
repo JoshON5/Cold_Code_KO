@@ -173,3 +173,8 @@ clearScores.addEventListener("click", function () {
   localStorage.clear("highscores", JSON.stringify(highscores));
   renderLeaderboard();
 });
+
+leaders.addEventListener("click", function(){
+  intro.style.display = "none";
+  renderLeaderboard();
+});
