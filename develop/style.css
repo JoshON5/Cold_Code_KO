@@ -1,16 +1,107 @@
 * {
     margin: 0;
     padding: 0;
+    list-style-type: none;
+}
+
+:root {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --main: #291F1E;
+    --text: #F64740;
+    --card: #A3333D;
+    --initials: #C4D6B0;
+    --questions: #8EF9F3;
+}
+
+.container  {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#timer {
+    font-size: large;
+    color: var(--card);
+    border: 8px solid var(--questions);
+    border-radius: 10px;
+    display: none;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 50%;    
+    margin: 10rem;
+    padding-top: 1rem;
+    padding-left: 3rem;
+    padding-bottom: 1rem;
+    padding-right: 3rem;
+    background-color: var(--card);
+
+}
+
+.intro p {
+    font-size: 1.5rem;
+    color: var(--questions);
+    font-weight: bolder;
+}
+
+body {
+    text-align: center;
+    background-color: var(--main);
+}
+
+h1 {
+    color: var(--main);
+    font-size: 3rem;
+    text-shadow: 1px 1px var(--questions);
+}
+.quiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    
+}
+
+.choices {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
 }
 
 .final-rank {
     display: none;
+    color: var(--initials);
+    background-color: var(--text);
+    
 }
 
 .quiz {
     display: none;
+    color: var(--questions);
+
 }
 
+.questions {
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+button {
+    color: var(--text);
+    background-color: var(--main);
+    font-weight: bolder;
+    font-size: larger;
+}
 .quiz-final-screen {
     display: none;
 
@@ -23,4 +114,21 @@
 
 .board {
     list-style: lower-roman;
+}
+
+@media screen and (max-width: 425px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .questions {
+        padding-right: 10rem;
+    }
+    .choices {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 10rem;
+    }
 }

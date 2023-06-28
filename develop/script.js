@@ -61,11 +61,12 @@ const codeQuest = [
 function countdown() {
   let timeInterval = setInterval(function () {
     seconds--;
+    timeEl.style.display = "inline"
     timeEl.textContent = seconds + "s";
 
     if (seconds === 0 || questionCount === codeQuest.length) {
       clearInterval(timeInterval);
-      timeEl.textContent = "";
+      timeEl.style.display = "none";
       quiz.style.display = "none";
       finalScreen.style.display = "block";
       score.textContent = seconds;
@@ -98,6 +99,7 @@ function setQuestion(id) {
 function displayMessage(m) {
   let checkMsg = document.createElement("hr");
   let checkEl = document.createElement("div");
+  checkEl.style.cssText = 'background-color:var(--main);font-size:2rem;color:var(--initials);'
   checkEl.textContent = m;
   document.querySelector(".card").appendChild(checkMsg);
   document.querySelector(".card").appendChild(checkEl);
