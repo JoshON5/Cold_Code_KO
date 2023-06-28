@@ -189,6 +189,9 @@ clearScores.addEventListener("click", function () {
 });
 
 leaders.addEventListener("click", function(){
-  intro.style.display = "none";
-  renderLeaderboard();
+  timeEl.style.display = "none";
+  intro.style.display = "none";  
+  rankScreen.style.display = "block";
+  finalScreen.style.display = "none";
+  quiz.style.display = "none";
 });
