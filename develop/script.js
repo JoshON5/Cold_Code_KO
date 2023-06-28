@@ -172,7 +172,8 @@ choices.forEach((item) => {
 playAgain.addEventListener("click", quizAgain);
 
 clearScores.addEventListener("click", function () {
-  localStorage.clear("highscores", JSON.stringify(highscores));
+  displayMessage("Scores cleared!");
+  localStorage.clear("highscores");
   renderLeaderboard();
 });
 
