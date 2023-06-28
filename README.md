@@ -6,10 +6,10 @@ Once the quiz is finished the user is presented with a for to submit the initial
 
 ## Visuals
 
+<a><link href="https://joshon5.github.io/Cold_Code_KO/">Cold Code KO</a>
 
 
-
-
+<img src="assets/2023-06-28 15.35.16.gif">
 
 
 
