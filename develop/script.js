@@ -23,6 +23,7 @@ const subBtn = document.querySelector("#submit");
 const playAgain = document.querySelector("#play-again");
 const clearScores = document.querySelector("#erase-leaders");
 
+// creating an array of options for the questions to be displayed through.
 const codeQuest = [
   {
     question: "Which one of these is NOT a data type present in JavaScript?",
@@ -58,6 +59,7 @@ const codeQuest = [
   },
 ];
 
+// timer that counts down by 1 second and when it hits zero will display the userinitials submit screen.
 function countdown() {
   let timeInterval = setInterval(function () {
     seconds--;
@@ -75,6 +77,7 @@ function countdown() {
   }, 1000);
 }
 
+// function to play the quiz that hides the other screens and just displays the questions and sets the question count to zero to cycle through.
 function playQuiz() {
   intro.style.display = "none";
   quiz.style.display = "inline";
@@ -86,6 +89,7 @@ function playQuiz() {
   setQuestion(questionCount);
 }
 
+// goes through the codequest array length and then shows the elements in each option by targeting their ids.
 function setQuestion(id) {
   if (id < codeQuest.length) {
     questions.textContent = codeQuest[id].question;
@@ -96,6 +100,7 @@ function setQuestion(id) {
   }
 }
 
+// creates an element into the HTML for the message when the correct or incorrect answer is targeted.
 function displayMessage(m) {
   let checkMsg = document.createElement("hr");
   let checkEl = document.createElement("div");
@@ -109,6 +114,7 @@ function displayMessage(m) {
   }, 1000);
 }
 
+// this function checks to see if what the user targeted and display the appropriate message for the target chosen.
 function checkAnswer(event) {
   event.preventDefault();
 
@@ -125,6 +131,7 @@ function checkAnswer(event) {
   setQuestion(questionCount);
 }
 
+// creates a function that creates a dynamic "li" element then runs a for loop to go through the users value of score and initials to display on the board.
 function renderLeaderboard() {
   var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
 
@@ -139,12 +146,15 @@ function renderLeaderboard() {
   rankScreen.style.display = "block";
   finalScreen.style.display = "none";
 }
+
+// resets the quiz so when the play again button is clicked it goes back to the start instead of picking up where it ended.
 function quizAgain() {
   seconds = 75;
   questionCount = 0;
   playQuiz();
 }
 
+// event that when the user submits their values they are stored and not automatically deleted.
 subBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
@@ -165,6 +175,7 @@ subBtn.addEventListener("click", function (event) {
 
 quizBtn.addEventListener("click", playQuiz);
 
+// button event for the check answer function.
 choices.forEach((item) => {
   item.addEventListener("click", checkAnswer);
 });
